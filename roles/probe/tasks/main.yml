@@ -1,0 +1,28 @@
+---
+  - name: Crear grupo 'probe'
+    group:
+      name: probe
+      state: present
+
+  - name: Agregar el grupo 'probe' a los sudoers
+    lineinfile:
+      dest: /etc/sudoers
+      state: present
+      regexp: '^%probe'
+      line: '%probe ALL=(ALL:ALL) ALL'
+      validate: 'visudo -cf %s'
+
+  - name: Crear usuario probe
+    user:
+      name: probe
+      password: $6$SALTsalt$m/ttv3O.Rgv4ouf2Jmoihkj28jhiBEGCVkhgEvWY0yearAO9r4HA9iqIRLdx6d1tmw.cJw0/LLA66sZr4a2nf1
+      groups: probe
+      state: present
+
+  - name: Crear directorio /home/probe/probe
+    file:
+      path: /home/probe/probe
+      state: directory
+      owner: probe
+      group: probe
+      mode: '0755'

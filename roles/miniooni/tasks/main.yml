@@ -1,0 +1,24 @@
+---
+  - name: Crear directorio /home/probe/ooni
+    file:
+      path: /home/probe/ooni
+      state: directory
+      owner: probe
+      group: probe
+      mode: '0755'
+
+  - name: Crear directorio /home/probe/ooni/mini
+    file:
+      path: /home/vsf/probe/mini
+      state: directory
+      owner: probe
+      group: probe
+      mode: '0755'
+
+  - name: Copiar ejecutable miniooni /home/probe/ooni
+    copy:    
+      src: miniooni 
+      dest: /home/probe/ooni/miniooni
+      owner: probe
+      group: probe
+      mode: '0755'

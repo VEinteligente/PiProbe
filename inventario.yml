@@ -1,0 +1,11 @@
+---
+  all:
+    children:
+      publuc:
+        hosts:
+          192.168.0.160: 
+            probe_id: 111
+        vars:
+          resolv_conf_nameservers: {}
+          probe_city: " "
+          probe_isp: " "

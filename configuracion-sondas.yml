@@ -1,0 +1,21 @@
+---
+  - name: Configuracion sondas
+    hosts: all
+    gather_facts: true
+    become: true
+    remote_user: pi
+    roles:
+      #- timezone
+       - paquetes-basicos
+      #- ntp
+       - probe
+       - speedtests
+       - install-scripts
+       - seguridad
+      #- dns
+      #- emma
+       - miniooni
+       - ooniprobe
+       - sesion
+       - crontab
+

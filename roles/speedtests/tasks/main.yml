@@ -1,0 +1,7 @@
+---
+  - name: Instalar paquetes para pruebas de velocidad
+    pip:
+      name: "{{ item }}"
+      state: latest
+    loop:
+      - "{{ paquetes }}"

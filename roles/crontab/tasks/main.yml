@@ -1,0 +1,71 @@
+---
+  - name: Crear directorio /home/probe/probe
+    file:
+      path: /home/probe/probe
+      state: directory
+      owner: probe
+      group: probe
+      mode: '0755'
+
+  - name: Copiando script run_miniooni.sh en /home/probe/ooni/
+    template: 
+      src: run_miniooni.sh.j2 
+      dest: /home/probe/ooni/run_miniooni.sh
+      owner: probe
+      group: probe
+      mode: '0755'
+
+  - name: Copiando script run_ooniprobe.sh en /home/probe/ooni/
+    template: 
+      src: run_ooniprobe.sh.j2 
+      dest: /home/probe/ooni/run_ooniprobe.sh
+      owner: probe
+      group: probe
+      mode: '0755'
+
+  - name: Copiando script run_list.sh en /home/probe/ooni/
+    template: 
+      src: run_list.sh.j2 
+      dest: /home/probe/ooni/run_list.sh
+      owner: probe
+      group: probe
+      mode: '0755'
+
+  - name: Recolector Basura Mensual
+    cron:
+      name: "Monthly garbage colector"
+      special_time: monthly
+      job: "find /home/probe/.ooniprobe/msmts -type f -mtime +60 -exec rm -f {} \\;"
+      user: probe
+
+  - name: Creando cronjob para reiniciar sonda antes de correr pruebas
+    cron:
+      name: "Reboot at 22:00"
+      minute: "0"
+      hour: "22"
+      job: "shutdown -r now"
+      user: probe
+
+  - name: Creando cronjob para correr run_miniooni.sh a las 23:00 horas
+    cron:
+      name: "run run_miniooni.sh at 23:00"
+      minute: "0"
+      hour: "23"
+      job: "/home/probe/ooni/run_miniooni.sh"
+      user: probe
+
+  - name: Creando cronjob para correr run_ooniprobe.sh a las 01:00 horas
+    cron:
+      name: "run run_ooniprobe.sh at 01:00"
+      minute: "0"
+      hour: "1"
+      job: "/home/probe/ooni/run_ooniprobe.sh"
+      user: probe
+
+  - name: Creando cronjob para correr run_list.sh a las 07:00 horas
+    cron:
+      name: "run run_list.sh at 07:00"
+      minute: "0"
+      hour: "7"
+      job: "/home/probe/ooni/run_list.sh"
+      user: probe
