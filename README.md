@@ -38,13 +38,13 @@ A computer running Windows, MacOS or Linux.
 
 Download the .img file with the PiProbe image. Don’t forget to check its authenticity:
 
-'''
+```
 md5sum d971f42d0902d68cc2e04f16621d5f61
 
 sha256sum 2d68b3e59f682920220e17bcfa33f1774624554e2b0599bafd0b4bfaef6cbb18
 
 sha512sum 24f96a4a9ad658cf43d1a9c095e87f91ad55fc61de16d022ea54042459c33a3309d4e22b4ebe8111db7c6d1a77f7170145c29f4aa99b524e734ece0697948a03
-'''
+```
 
 
 To install the downloaded image into a Raspberry Pi we recommend using Raspberry Pi Imager, an official utility that helps managing different operating systems and burning them into a microSD. Other methods or softwares can be used to create a bootable drive, but they won’t be covered in our documentation.
@@ -74,9 +74,9 @@ Then, connect the power cable
 If you are connecting via SSH, you should find the IP address of the probe in your router (or try piprobe.local as the destination address). If you are unfamiliar with SSH, check this guide.
 Also, check this for guidance on how to obtain your probe's local IP address
 
-'''
+```
 ssh probe@piprobe.local 
-'''
+```
 If that didn't work, or multiple are connected, replace "piprobe.local" with the IP address of the target probe.
 
 If you used ssh or a keyboard and monitor, now introduce the default login credentials:
@@ -88,9 +88,9 @@ There are two main default users in the PiProbe image: user ‘pi’ and user �
 
 To start the configuration script, type the following command in the terminal prompt:
 
-'''
+```
 sudo ./install.sh
-'''
+```
 
 This will run a script that will prompt the user with a series of customizable parameters that can help identify the probe, such as ID and ISP when you are in, it makes your life easier if you have multiple probes. Also, the script will ask the user to establish the behavior and frequency OONI measurements.
 
