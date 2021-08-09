@@ -107,9 +107,9 @@ There are two main applications made by OONI in PiProbe: ooniprobe-cli and minio
 ooniprobe-cli:
 This is the main utility from OONI Probe. It runs several tests, such as looking for censored websites from a list of over 1450 entries, or checking if circumvention tools like Tor are being blocked. The measurement results will be uploaded automatically to OONI's servers. For the full list of tests and their explanations, please refer to OONI’s official website.
 
-'''
+```
 ooniprobe run
-'''
+```
 
 By default, PiProbe runs ooniprobe-cli once a day at 1:00 am without any interaction, but that can be changed at any time running the initial configuration file install.sh at any time.
 
@@ -117,19 +117,19 @@ miniooni:
 With miniooni you can run tests that are far more specific. 
 
 You can test individual websites, 
-'''
+```
 ./miniooni -i https://google.com web_connectivity
-'''
+```
 
 Multiple websites
-'''
+```
 ./miniooni -i https://google.com -i https://youtube.com web_connectivity
-'''
+```
 
 Or running other tests individually, testing a list of urls or more.
-'''
+```
 ./miniooni -i  web_connectivity
-'''
+```
 
 
 
@@ -144,7 +144,7 @@ Tor is not installed by default in PiProbe, but If you feel you need an extra la
 
 A bash script with all the necessary steps to install Tor is inside the home directory of the ‘probe’ user. Just run it using sudo.
 
-```sudo ./tor-install.sh````
+```sudo ./tor-install.sh```
 
 
 
