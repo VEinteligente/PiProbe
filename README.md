@@ -144,7 +144,8 @@ Connect via SSH WITH TOR:
 In order to establish an ssh session with a .onion host you must also have the tor and torsocks packages installed on your local host. Or use other configuration to connect to ssh via Tor.
 
 ```torsocks ssh probe@abcdefh1234.onion ```
-abcdefh1234.onion being yout probes .onion address
+
+abcdefh1234.onion being whatever your probe's .onion address is.
 
 
 
