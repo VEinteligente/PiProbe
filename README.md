@@ -3,7 +3,7 @@
 
 PiProbe is a Raspberry Pi OS image customized for the purpose of automatically monitoring internet censorship events in a way that’s close to an appliance. Helping guarantee frequent data points for large lists of urls to check.
 
-It's solution that uses OONI, but it's not tied down to a full PC that is on and connected to contribute measurements, doesn't require coordinated volunteers to contribute daily measurements nor makes a phone mostly useless while large lists are tested.
+It's a solution that uses OONI, but it's not tied down to a full-size PC in order to contribute to measurements, doesn't require coordinated volunteers to gather daily data, nor makes a phone mostly useless while large lists are tested.
 
 PiProbe is a way to help people anywhere in the world to get accurate and decentralized data regarding online censorship automatically as an appliance. Once set up, just plug the Raspberry Pi to the internet in the target network. 
 
@@ -150,9 +150,9 @@ abcdefh1234.onion being whatever your probe's .onion address is.
 
 
 ## Additional risks of remote management
-Remote management opens your probe for third parties to try to brake in into your probe(s), giving them access to not only your probe, but possibly the host network. 
-Do not enable any kind of remote management if you don't need it, if you do make sure to model your risks and implement a solution accordingly. 
+Remote management opens your probe for third parties to try to break into it, giving them access to not only your probe, but possibly the host network. 
+Do not enable any kind of remote management if you don't need it, and if you do make sure to model your risks and implement a solution accordingly. 
 
 Making sure probes with remote management can't be accessed by any kind of default password is absolutely critical, and probably not enough. We recommend requiring an SSH key, preferably one that only exists in secure hardware such as a yubikey. 
 
-In some situations the project and hosts of probes can be at risk if the probes know the IP address of a management server and if a server or project members know the IP addresses of the probes, we try to mitigate this risk using Tor, to access probes without keeping a list of IP addresses that can expose their physical location to some parties, also don't use a server for management that can be used to expose the probes in network traffic or if the server is compromised.
+In some situations the project and hosts of probes can be at risk if the probes know the IP address of a management server and if a server or project members know the IP addresses of the probes. We try to mitigate this risk using Tor to access probes without keeping a list of IP addresses that can expose their physical location to some parties, also don't use a server for management that can be used to expose the probes in network traffic or if the server is compromised.
