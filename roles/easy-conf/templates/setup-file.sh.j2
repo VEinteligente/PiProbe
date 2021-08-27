@@ -19,8 +19,8 @@ if test -f "$FILE"; then
 	fi
 
 	# # OONI SECTION
-	# Write out current crontab
-	crontab -u probe -l > mycron
+	# Create file for crontab
+	touch mycron
 
 	# Ooniprobe
 	ooniprobe_scheduling=`sed -n 's/^ooniprobe_scheduling=\(.*\)/\1/p' < ${FILE}`
