@@ -1,7 +1,0 @@
-#!/bin/bash
-MINI="/home/probe/ooni"
-STATUS_LOG=$MINI"/list_status_log.txt"
-$MINI/miniooni -f "/home/probe/lists/url_list.txt" web_connectivity || (echo "error running miniooni: `date`" >> $STATUS_LOG; exit 1)
-cat /home/probe/ooni/report.jsonl | jq . > /home/probe/ooni/mini/pretty_log.json;
-echo "*LIST* miniooni executed successfully: `date`" >> $STATUS_LOG
-

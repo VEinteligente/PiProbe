@@ -1,6 +1,0 @@
-#!/bin/bash
-MINI="/home/vsf/ooni"
-STATUS_LOG=$MINI"/miniooni_status_log.txt"
-$MINI/miniooni web_connectivity || (echo "error corriendo miniooni: `date`" >> $STATUS_LOG; exit 1)
-cat /home/vsf/ooni/report.jsonl | jq . > /home/vsf/ooni/mini/pretty_log.json;
-echo "miniooni ejecutado exitosamente: `date`" >> $STATUS_LOG

@@ -1,5 +1,5 @@
 ---
-  - name: Creando archivo probeid para inicio de sesion
+  - name: Create probeid file
     template: 
       src: probeid.j2 
       dest: /home/probe/probeid      
@@ -7,7 +7,7 @@
       group: probe
       mode: '0755'
 
-  - name: Creando archivo probecity para inicio de sesion
+  - name: Create probecity file
     template: 
       src: probecity.j2 
       dest: /home/probe/probecity      
@@ -15,7 +15,7 @@
       group: probe
       mode: '0755'
 
-  - name: Creando archivo probeisp para inicio de sesion
+  - name: Create probeisp file
     template: 
       src: probeisp.j2 
       dest: /home/probe/probeisp      
@@ -23,12 +23,12 @@
       group: probe
       mode: '0755'
 
-  - name: Copiar script que despliega informacion al inicio de sesion
+  - name: Copy script to display probe info when booting
     copy:    
       src: info.sh 
       dest: /etc/profile.d/info.sh
 
-  - name: Copiar PiProbe version
+  - name: Copy PiProbe version
     copy:    
       src: version
       dest: /home/probe/probe/version

@@ -1,0 +1,16 @@
+---
+  - name: Copy script to use with PiProbe.conf file
+    template:
+      src: setup-file.sh.j2
+      dest: /boot/overlays
+
+  - name: Copy list for ooni
+    template:
+      src: list.txt.j2
+      dest: /boot/overlays
+
+  - name: Edit /etc/rc.local to run setup-file.sh when booting
+    lineinfile:
+      dest: /etc/rc.local
+      insertbefore: 'exit 0'
+      line: "sudo bash /boot/overlays/setup-file.sh &"

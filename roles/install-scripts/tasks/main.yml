@@ -1,5 +1,5 @@
 ---
-  - name: Copiar scripts de instalacion
+  - name: Copy intall script
     copy:    
       src: install.sh
       dest: /home/probe
@@ -7,7 +7,7 @@
       group: probe
       mode: '0755'
 
-  - name: Copiar script tor
+  - name: Copy tor intall script
     copy:    
       src: tor-install.sh
       dest: /home/probe

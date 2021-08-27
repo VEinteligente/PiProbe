@@ -22,9 +22,7 @@
         line: "GSSAPIAuthentication {{ security_ssh_gss_api_authentication }}"
       - regexp: "^X11Forwarding"
         line: "X11Forwarding {{ security_ssh_x11_forwarding }}"
-    notify: Reiniciar ssh
+    notify: Restart ssh
 
-
-
-  - name: Forzar handlers
+  - name: Force handlers
     meta: flush_handlers

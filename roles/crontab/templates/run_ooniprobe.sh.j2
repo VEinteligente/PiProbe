@@ -1,9 +1,0 @@
-#!/bin/bash
-PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/local/games:/usr/games"
-MINI="/home/vsf/ooni"
-STATUS_LOG=$MINI"/ooniprobe_status_log.txt"
-PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/local/games:/usr/games"
-echo "ooniprobe iniciado: `date`" >> $STATUS_LOG
-ooniprobe run || (echo "no pudo correrse ooniprobe: `date`" >> $STATUS_LOG; exit 1)
-echo "ooniprobe finalizado: `date`" >> $STATUS_LOG
-echo "----------------" >> $STATUS_LOG

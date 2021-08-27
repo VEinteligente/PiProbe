@@ -1,5 +1,5 @@
 ---
-  - name: Crear directorio /home/probe/ooni
+  - name: Create /home/probe/ooni directory
     file:
       path: /home/probe/ooni
       state: directory
@@ -7,7 +7,7 @@
       group: probe
       mode: '0755'
 
-  - name: Crear directorio /home/probe/ooni/mini
+  - name: Create /home/probe/ooni/mini directory
     file:
       path: /home/vsf/probe/mini
       state: directory
@@ -15,7 +15,7 @@
       group: probe
       mode: '0755'
 
-  - name: Copiar ejecutable miniooni /home/probe/ooni
+  - name: Copy miniooni exec into /home/probe/ooni/miniooni
     copy:    
       src: miniooni 
       dest: /home/probe/ooni/miniooni

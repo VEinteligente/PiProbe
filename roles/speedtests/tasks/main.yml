@@ -1,7 +1,7 @@
 ---
-  - name: Instalar paquetes para pruebas de velocidad
+  - name: Install speedtests packages
     pip:
       name: "{{ item }}"
       state: latest
     loop:
-      - "{{ paquetes }}"
+      - "{{ packages }}"

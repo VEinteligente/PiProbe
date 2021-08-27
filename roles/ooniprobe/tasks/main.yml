@@ -1,8 +1,9 @@
 ---
-  - name: Copiar ejecutable ooniprobe a /usr/local/bin/ooniprobe
+  - name: Copy ooniprobe exec into /usr/local/bin/ooniprobe
     copy:    
       src: ooniprobe 
       dest: /usr/local/bin/ooniprobe
       owner: probe
       group: probe
       mode: '0755'
+  

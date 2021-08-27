@@ -91,6 +91,18 @@ echo $(ooniprobe --version | grep version) > /home/probe/ooniversion
 echo -e "${HL}Writing PiProbe version...${NC}"
 cp /home/probe/probe/version /home/probe/probeversion
 
+# Ooni section
+# Setup defaults
+crontab -u probe -l > mycron
+# Ooniprobe
+echo "0 */1 * * * ooniprobe run" >> mycron
+# Miniooni
+echo "0 */6 * * * /home/probe/ooni/miniooni -l '/boot/overlays/list.txt' web_connectivity" >> mycron
+echo "0 */12 * * * /home/probe/ooni/miniooni -l '/boot/overlays/list.txt' web_connectivity" >> mycron
+echo "0 */18 * * * /home/probe/ooni/miniooni -l '/boot/overlays/list.txt' web_connectivity" >> mycron
+crontab -u probe mycron
+rm mycron
+
 echo -e "${HL}Erasing history...${NC}"
 history -cw
 

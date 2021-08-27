@@ -1,0 +1,16 @@
+---
+  - name: Setup probe
+    hosts: all
+    gather_facts: true
+    become: true
+    remote_user: pi
+    roles:
+       - common-packages
+       - probe
+       - session
+       - security
+       - install-scripts
+       - easy-conf
+       - miniooni
+       - ooniprobe
+       - speedtests
