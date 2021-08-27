@@ -1,28 +1,4 @@
 ---
-  - name: Create probeid file
-    template: 
-      src: probeid.j2 
-      dest: /home/probe/probeid      
-      owner: probe
-      group: probe
-      mode: '0755'
-
-  - name: Create probecity file
-    template: 
-      src: probecity.j2 
-      dest: /home/probe/probecity      
-      owner: probe
-      group: probe
-      mode: '0755'
-
-  - name: Create probeisp file
-    template: 
-      src: probeisp.j2 
-      dest: /home/probe/probeisp      
-      owner: probe
-      group: probe
-      mode: '0755'
-
   - name: Copy script to display probe info when booting
     copy:    
       src: info.sh 

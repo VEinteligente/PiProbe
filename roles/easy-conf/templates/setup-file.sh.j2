@@ -15,10 +15,7 @@ if test -f "$FILE"; then
 	# Extract new probe password from config file
 	password=`sed -n 's/^password=\(.*\)/\1/p' < ${FILE}` 
 	if [ ! -z "$password" ]; then
-		# hash password
-		hashed_password=$(python -c "import crypt, getpass, pwd; print crypt.crypt('${password}', '\$6\$SALTsalt\$')" 2>&1)
-		# set the new probe password on /etc/shadow
-		sed -i.sedbackup 's/^\(probe:\)[^:]*\(:.*\)$/\1'${hashed_password}'\2/' /etc/shadow
+        echo "probe:$password" | chpasswd
 	fi
 
 	# # OONI SECTION

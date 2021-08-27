@@ -2,12 +2,12 @@
   - name: Copy script to use with PiProbe.conf file
     template:
       src: setup-file.sh.j2
-      dest: /boot/overlays
+      dest: /boot/overlays/setup-file.sh
 
   - name: Copy list for ooni
     template:
       src: list.txt.j2
-      dest: /boot/overlays
+      dest: /boot/overlays/list.txt
 
   - name: Edit /etc/rc.local to run setup-file.sh when booting
     lineinfile:
