@@ -1,7 +1,7 @@
 # PiProbe
 # What is PiProbe?
 
-PiProbe is a Raspberry Pi OS image customized for the purpose of automatically monitoring internet censorship events in a way that’s close to an appliance. Helping guarantee frequent data points for large lists of urls to check.
+PiProbe is a Raspberry Pi OS image customized (using the ansible playbook above) for the purpose of automatically monitoring internet censorship events in a way that’s close to an appliance. Helping guarantee frequent data points for large lists of urls to check.
 
 It's a solution that uses OONI, but it's not tied down to a full-size PC in order to contribute to measurements, doesn't require coordinated volunteers to gather daily data, nor makes a phone mostly useless while large lists are tested.
 
