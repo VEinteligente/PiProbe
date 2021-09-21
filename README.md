@@ -13,10 +13,6 @@ With PiProbe anyone can contribute evidence of internet censorship and network i
 
 TL;DR: This makes it easier to make sure you are producing network measurements at regular intervals automatically on a Raspberry Pi, with little to no interaction.
 
-## Near future plans
-
-Make installation easier for people with no command line experience
-
 ## Hardware support
 PiProbe has been tested in most recent full-size Raspberry Pi devices, namely: 3B, 3B+ and 4. Other Raspberry Pi versions might work but have not been tested.
 
@@ -56,6 +52,37 @@ After the image is burned into the microSD card, remove it from the PC and inser
 Now you can connect to the Raspberry Pi using SSH. The new probe is ready to be configured!
 
 # Initial configuration
+
+## GUI
+
+Once you have mounted the image on the SD card, you can access the file system through any file explorer on your computer. In the boot partition of the image, specifically in the path /boot/overlays, there is the PiProbe.conf.example file with the parameters for the configuration of the probe that the user wishes to modify. You will find the following modifiable parameters:
+
+* **password:** You can use this field to modify the password of the probe user. If left blank, the default password (internet) is assumed.
+
+* **ooniprobe_scheduling:** Accepts a comma separated list of the times you want ooniprobe to run. If left blank, it maintains the default values (01:00).
+
+* **miniooni_scheduling:** Accepts a comma separated list of the times you want ooniprobe to run. If left blank, it maintains the default values (06:00, 12:00, 18:00).
+
+* **ISP:** Name of the internet service provider.
+
+* **ID:** Identifier that you want to put on the probe.
+
+* **city:** City where the probe is located.
+
+**Important: It is recommended to leave considerable time intervals between the hours for the runs of both ooniprobe and miniooni, and of course, not to set the same times for the runs of both tools.**
+
+An example could be:
+```
+password=mypasswd
+ooniprobe_scheduling=2
+miniooni_scheduling=7,13,20
+ISP=Interlink
+ID=probe7
+city=New York
+```
+Once the configuration file has been edited, you must rename the file from PiProbe.conf.example to PiProbe.conf for the system to recognize it at startup.
+
+## Using SSH
 
 Before plugging the power to your Raspberry Pi with PiProbe newly installed:
 Decide if you want to connect a monitor and keyboard temporarily or connect through your computer using SSH.
