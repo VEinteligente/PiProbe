@@ -82,6 +82,16 @@ city=New York
 ```
 Once the configuration file has been edited, you must rename the file from PiProbe.conf.example to PiProbe.conf for the system to recognize it at startup.
 
+In this same directory you will find the list with the url addresses that miniooni will use to perform the different blocking tests. The file is called list.txt and you can edit it by adding the addresses that are of interest to you for blocking analysis.
+
+An example could be:
+
+```
+www.google.com
+www.facebook.com
+www.youtube.com
+```
+
 ## Using SSH
 
 Before plugging the power to your Raspberry Pi with PiProbe newly installed:
