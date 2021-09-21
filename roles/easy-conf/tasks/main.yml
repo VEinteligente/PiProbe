@@ -1,13 +1,19 @@
 ---
-  - name: Copy script to use with PiProbe.conf file
-    template:
-      src: setup-file.sh.j2
+  - name: Copy ooniprobe config file
+    copy:    
+      src: setup-file.sh
       dest: /boot/overlays/setup-file.sh
+      owner: probe
+      group: probe
+      mode: '0755'
 
   - name: Copy list for ooni
-    template:
-      src: list.txt.j2
+    copy:    
+      src: list.txt
       dest: /boot/overlays/list.txt
+      owner: probe
+      group: probe
+      mode: '0755'
 
   - name: Edit /etc/rc.local to run setup-file.sh when booting
     lineinfile:

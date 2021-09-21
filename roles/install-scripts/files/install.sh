@@ -95,7 +95,7 @@ cp /home/probe/probe/version /home/probe/probeversion
 # Setup defaults
 crontab -u probe -l > mycron
 # Ooniprobe
-echo "0 */1 * * * ooniprobe run" >> mycron
+echo "0 */1 * * * ooniprobe run -c /home/probe/ooniprobe_config.json" >> mycron
 # Miniooni
 echo "0 */6 * * * /home/probe/ooni/miniooni -l '/boot/overlays/list.txt' web_connectivity" >> mycron
 echo "0 */12 * * * /home/probe/ooni/miniooni -l '/boot/overlays/list.txt' web_connectivity" >> mycron

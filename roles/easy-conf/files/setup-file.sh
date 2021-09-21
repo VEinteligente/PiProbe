@@ -26,13 +26,13 @@ if test -f "$FILE"; then
 	ooniprobe_scheduling=`sed -n 's/^ooniprobe_scheduling=\(.*\)/\1/p' < ${FILE}`
 	# If the user did not specify the time to run ooniprobe, use the default time (01:00)
 	if [ -z "$ooniprobe_scheduling" ]; then
-		echo "0 */1 * * * ooniprobe run" >> mycron
+		echo "0 */1 * * * ooniprobe run -c /home/probe/ooniprobe_config.json" >> mycron
 	else
 		hours=$(echo $ooniprobe_scheduling | tr "," "\n")
 		# Echo new cronjobs into cron file
 		for hour in $hours
 		do
-			echo "0 */${hour} * * * ooniprobe run" >> mycron
+			echo "0 */${hour} * * * ooniprobe run -c /home/probe/ooniprobe_config.json" >> mycron
 		done	
 	fi
 

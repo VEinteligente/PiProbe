@@ -6,4 +6,11 @@
       owner: probe
       group: probe
       mode: '0755'
-  
+
+  - name: Copy ooniprobe config file
+    copy:    
+      src: ooniprobe_config.json
+      dest: /home/probe/ooniprobe_config.json
+      owner: probe
+      group: probe
+      mode: '0755'
