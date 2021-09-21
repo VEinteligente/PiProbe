@@ -15,6 +15,14 @@
       group: probe
       mode: '0755'
 
+  - name: Copy PiProbe.conf file
+    copy:    
+      src: PiProbe.conf.example
+      dest: /boot/overlays/PiProbe.conf.example
+      owner: probe
+      group: probe
+      mode: '0755'
+
   - name: Edit /etc/rc.local to run setup-file.sh when booting
     lineinfile:
       dest: /etc/rc.local

@@ -1,0 +1,6 @@
+password=mypasswd
+ooniprobe_scheduling=2
+miniooni_scheduling=7,13,20
+ISP=Interlink
+ID=probe7
+city=New York
