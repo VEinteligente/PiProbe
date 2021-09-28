@@ -24,5 +24,10 @@
         line: "X11Forwarding {{ security_ssh_x11_forwarding }}"
     notify: Restart ssh
 
+  - name: Deny pi ssh login
+    lineinfile:
+      dest: "{{ security_ssh_config_path }}"
+      line: "DenyUsers pi"
+
   - name: Force handlers
     meta: flush_handlers

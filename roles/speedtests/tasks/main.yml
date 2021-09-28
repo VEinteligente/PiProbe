@@ -1,6 +1,6 @@
 ---
   - name: Install speedtests packages
-    pip:
+    apt:
       name: "{{ item }}"
       state: latest
     loop:

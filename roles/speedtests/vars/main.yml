@@ -1,5 +1,3 @@
 ---
   packages:
     - speedtest-cli 
-    - netifaces 
-    - gpiozero
