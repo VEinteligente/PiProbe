@@ -1,6 +1,39 @@
+# password: You can use this field to modify the password of the probe user. If left blank, the default password (internet) is assumed.
 password=mypasswd
+
+# ooniprobe_scheduling: Accepts a comma separated list of the times you want ooniprobe to run. If left blank, it maintains the default values (01:00).
 ooniprobe_scheduling=2
+
+# miniooni_scheduling: Accepts a comma separated list of the times you want ooniprobe to run. If left blank, it maintains the default values (06:00, 12:00, 18:00).
 miniooni_scheduling=7,13,20
+
+# ISP: Name of the internet service provider.
 ISP=Interlink
+
+# ID: Identifier that you want to put on the probe.
 ID=probe7
+
+# city: City where the probe is located.
 city=New York
+
+#/**************/
+#/* DISCLAIMER */
+#/**************/
+
+#/*
+#PiProbe is a project created by VeInteligente to detect internet blocks.
+#It uses OONI to measure the blocking of websites, messaging apps and
+#circumvention tools; detect the presence of middleboxes in your network; 
+#and test internet speed and performance. 
+
+#Take into account that...
+#	
+#	●  Anyone monitoring your internet activity may be able to see that you are using OONI Probe 
+#	●  By default, all data measured by OONI will be uploaded and published (unless you opt-out in settings)
+#	●  Some of the tested websites might be considered objectionable
+#	●  Using PiProbe and OONI can potencially be risky to some people in certain regions
+#
+#USE AT YOUR OWN DISCRETION AND PROTECT YOURSELF MORE THAN ANYTHING ELSE
+#
+#Read more about PiProbe and OONI in the README.md
+#*/

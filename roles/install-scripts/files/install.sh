@@ -97,9 +97,9 @@ crontab -u probe -l > mycron
 # Ooniprobe
 echo "0 */1 * * * ooniprobe run -c /home/probe/ooniprobe_config.json" >> mycron
 # Miniooni
-echo "0 */6 * * * /home/probe/ooni/miniooni -l '/boot/overlays/list.txt' web_connectivity" >> mycron
-echo "0 */12 * * * /home/probe/ooni/miniooni -l '/boot/overlays/list.txt' web_connectivity" >> mycron
-echo "0 */18 * * * /home/probe/ooni/miniooni -l '/boot/overlays/list.txt' web_connectivity" >> mycron
+echo "0 */6 * * * /home/probe/ooni/miniooni -f '/boot/overlays/list.txt' web_connectivity" >> mycron
+echo "0 */12 * * * /home/probe/ooni/miniooni -f '/boot/overlays/list.txt' web_connectivity" >> mycron
+echo "0 */18 * * * /home/probe/ooni/miniooni -f '/boot/overlays/list.txt' web_connectivity" >> mycron
 crontab -u probe mycron
 rm mycron
 
