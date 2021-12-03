@@ -22,6 +22,13 @@ if test -f "$FILE"; then
 	# Create file for crontab
 	touch mycron
 
+	# Check if the user defined an internet list
+	web_list=`sed -n 's/^web_list=\(.*\)/\1/p' < ${FILE}` 
+	if [ ! -z "$web_list" ]; then
+		wget -O /boot/overlays/list.txt ${web_list}
+		echo "0 */16 * * * wget -O /boot/overlays/list.txt ${web_list}" >> mycron # Update the list every day at 16:00
+	fi	
+
 	# Ooniprobe
 	ooniprobe_scheduling=`sed -n 's/^ooniprobe_scheduling=\(.*\)/\1/p' < ${FILE}`
 	# If the user did not specify the time to run ooniprobe, use the default time (01:00)

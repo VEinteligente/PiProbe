@@ -8,9 +8,9 @@
        - common-packages
        - probe
        - session
-       - security
        - install-scripts
        - easy-conf
        - miniooni
        - ooniprobe
        - speedtests
+       - security

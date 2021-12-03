@@ -16,3 +16,4 @@
     - git
     - dnsutils
     - python3-dev 
+    - wget

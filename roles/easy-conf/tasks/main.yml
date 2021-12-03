@@ -8,7 +8,7 @@
     copy:    
       src: list.txt
       dest: /boot/overlays/list.txt
-      mode: '0755'
+      mode: '0777'
 
   - name: Copy PiProbe.conf file
     copy:    

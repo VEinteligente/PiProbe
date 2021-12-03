@@ -16,6 +16,9 @@ ID=probe7
 # city: City where the probe is located.
 city=New York
 
+# web_list: URL of the list with the URLs to use with ooni (The format of the list must strictly be one url per line.)
+web_list=
+
 #/**************/
 #/* DISCLAIMER */
 #/**************/
