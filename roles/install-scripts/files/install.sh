@@ -94,6 +94,15 @@ cp /home/probe/probe/version /home/probe/probeversion
 # Ooni section
 # Setup defaults
 crontab -u probe -l > mycron
+
+# Check if the user defined an internet list
+echo "Enter the web address where the list is located for ooni (leave blank if you want to use the manual list): "
+read web_list
+if [ ! -z "$web_list" ]; then
+	wget -O /boot/overlays/list.txt ${web_list}
+	echo "0 */16 * * * wget -O /boot/overlays/list.txt ${web_list}" >> mycron # Update the list every day at 16:00
+fi
+
 # Ooniprobe
 echo "0 */1 * * * ooniprobe run -c /home/probe/ooniprobe_config.json" >> mycron
 # Miniooni
