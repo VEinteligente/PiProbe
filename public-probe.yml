@@ -10,7 +10,6 @@
        - session
        - install-scripts
        - easy-conf
-       - miniooni
-       - ooniprobe
+       - ooni
        - speedtests
        - security

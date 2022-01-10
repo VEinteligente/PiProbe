@@ -1,7 +1,6 @@
 ---
   common_packages:
     - python3-pip
-    - python-pip
     - python3-setuptools
     - build-essential
     - libdumbnet-dev

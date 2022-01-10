@@ -1,0 +1,29 @@
+---
+  - name: Install the bintray GPG key
+    apt_key:
+      keyserver: hkp://keyserver.ubuntu.com
+      id: B5A08F01796E7F521861B449372D1FF271F2DD50
+
+  - name: Add the extra repository
+    apt_repository:
+      repo: deb http://deb.ooni.org/ unstable main
+      state: present
+      filename: ooniprobe
+
+  - name: Update package manager
+    apt:
+      update_cache: true
+      cache_valid_time: 3600 
+
+  - name: Install OONI Probe
+    apt:  
+      name: ooniprobe-cli
+      state: latest
+
+  - name: Copy ooniprobe config file
+    copy:    
+      src: ooniprobe_config.json
+      dest: /home/probe/ooniprobe_config.json
+      owner: probe
+      group: probe
+      mode: '0755'

@@ -106,9 +106,9 @@ fi
 # Ooniprobe
 echo "0 */1 * * * ooniprobe run -c /home/probe/ooniprobe_config.json" >> mycron
 # Miniooni
-echo "0 */6 * * * /home/probe/ooni/miniooni -f '/boot/overlays/list.txt' web_connectivity" >> mycron
-echo "0 */12 * * * /home/probe/ooni/miniooni -f '/boot/overlays/list.txt' web_connectivity" >> mycron
-echo "0 */18 * * * /home/probe/ooni/miniooni -f '/boot/overlays/list.txt' web_connectivity" >> mycron
+echo "0 */6 * * * ooniprobe run websites --input-file /boot/overlays/list.txt" >> mycron
+echo "0 */12 * * * ooniprobe run websites --input-file /boot/overlays/list.txt" >> mycron
+echo "0 */18 * * * ooniprobe run websites --input-file /boot/overlays/list.txt" >> mycron
 crontab -u probe mycron
 rm mycron
 

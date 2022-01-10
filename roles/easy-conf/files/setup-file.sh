@@ -47,15 +47,15 @@ if test -f "$FILE"; then
 	miniooni_scheduling=`sed -n 's/^miniooni_scheduling=\(.*\)/\1/p' < ${FILE}`
 	# If the user did not specify the time to run miniooni, use the default hours (06:00 12:00 18:00)
 	if [ -z "$miniooni_scheduling" ]; then
-		echo "0 */6 * * * /home/probe/ooni/miniooni -f '/boot/overlays/list.txt' web_connectivity" >> mycron
-		echo "0 */12 * * * /home/probe/ooni/miniooni -f '/boot/overlays/list.txt' web_connectivity" >> mycron
-		echo "0 */18 * * * /home/probe/ooni/miniooni -f '/boot/overlays/list.txt' web_connectivity" >> mycron
+		echo "0 */6 * * * ooniprobe run websites --input-file /boot/overlays/list.txt" >> mycron
+		echo "0 */12 * * * ooniprobe run websites --input-file /boot/overlays/list.txt" >> mycron
+		echo "0 */18 * * * ooniprobe run websites --input-file /boot/overlays/list.txt" >> mycron
 	else
 		hours=$(echo $miniooni_scheduling | tr "," "\n")
 		# Echo new cronjobs into cron file
 		for hour in $hours
 		do
-			echo "0 */${hour} * * * /home/probe/ooni/miniooni -f '/boot/overlays/list.txt' web_connectivity" >> mycron
+			echo "0 */${hour} * * * ooniprobe run websites --input-file /boot/overlays/list.txt" >> mycron
 		done	
 	fi
 

@@ -1,5 +1,5 @@
 ---
-  - name: Copy ooniprobe config file
+  - name: Copy firstboot setup script
     copy:    
       src: setup-file.sh
       dest: /boot/overlays/setup-file.sh
