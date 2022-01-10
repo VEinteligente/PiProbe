@@ -1,23 +1,3 @@
-# password: You can use this field to modify the password of the probe user. If left blank, the default password (internet) is assumed.
-password=mypasswd
-
-# ooniprobe_scheduling: Accepts a comma separated list of the times you want ooniprobe to run. If left blank, it maintains the default values (01:00).
-ooniprobe_scheduling=2
-
-# miniooni_scheduling: Accepts a comma separated list of the times you want ooniprobe to run. If left blank, it maintains the default values (06:00, 12:00, 18:00).
-miniooni_scheduling=7,13,20
-
-# ISP: Name of the internet service provider.
-ISP=Interlink
-
-# ID: Identifier that you want to put on the probe.
-ID=probe7
-
-# city: City where the probe is located.
-city=New York
-
-# web_list: URL of the list with the URLs to use with ooni (The format of the list must strictly be one url per line.)
-web_list=
 
 #/**************/
 #/* DISCLAIMER */
@@ -40,3 +20,25 @@ web_list=
 #
 #Read more about PiProbe and OONI in the README.md
 #*/
+
+# password: You can use this field to modify the password of the probe user. If left blank, the default password (internet) is assumed.
+password=mypasswd
+
+# ooniprobe_scheduling: Accepts a comma separated list of the times you want ooniprobe to run. If left blank, it maintains the default values (01:00).
+ooniprobe_scheduling=2
+
+# miniooni_scheduling: Accepts a comma separated list of the times you want miniooni to run. If left blank, it maintains the default values (06:00, 12:00, 18:00).
+miniooni_scheduling=7,13,20
+
+# ISP: Name of the internet service provider.
+ISP=Interlink
+
+# ID: Identifier that you want to put on the probe.
+ID=probe7
+
+# city: City where the probe is located.
+city=New York
+
+# web_list: URL of the list with the URLs to use with ooni (The format of the list must strictly be one url per line and 'https://' must be specified
+# e.g: https://google.com/).
+web_list=
