@@ -1,0 +1,11 @@
+---
+  - name: Automating upgrades 
+    cron:
+      name: "Scheduled upgrades"
+      minute: "0"
+      hour: "0"
+      day: "1"
+      month: "*"
+      job: "sudo apt-get update && sudo apt-get -y upgrade"
+      user: root
+
