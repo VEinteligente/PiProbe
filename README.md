@@ -146,17 +146,17 @@ With miniooni you can run tests that are far more specific.
 
 You can test individual websites, 
 ```
-./miniooni -i https://google.com web_connectivity
+ooniprobe run websites  https://google.com 
 ```
 
 Multiple websites
 ```
-./miniooni -i https://google.com -i https://youtube.com web_connectivity
+ooniprobe run websites --input-files=list.txt
 ```
 
 Or running other tests individually, testing a list of urls or more.
 ```
-./miniooni -i  web_connectivity
+ooniprobe run --help
 ```
 
 
