@@ -112,6 +112,12 @@ echo "0 */18 * * * ooniprobe run websites --input-file /boot/overlays/list.txt" 
 crontab -u probe mycron
 rm mycron
 
+
+echo "0 0 1 * * sudo apt-get update && sudo apt-get -y upgrade" >> mycron
+crontab -u root mycron
+rm mycron
+
+
 echo -e "${HL}Erasing history...${NC}"
 history -cw
 
