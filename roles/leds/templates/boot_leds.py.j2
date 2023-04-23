@@ -1,0 +1,46 @@
+import requests
+import time
+import RPi.GPIO as GPIO
+
+GPIO.setmode(GPIO.BCM)
+
+#led pin numbers
+green_led = 15
+green_led_2 = 13
+yellow_led = 18
+red_led = 23
+
+#set up GPIO
+GPIO.setup(green_led, GPIO.OUT)
+GPIO.setup(green_led_2, GPIO.OUT)
+GPIO.setup(yellow_led, GPIO.OUT)
+GPIO.setup(red_led, GPIO.OUT)
+
+speed = 5
+lights_place = [False, False, True]
+rainbow_time = 180 # 3 min in seconds
+start_time = time.time()
+
+def rotate(a: list, b: int) -> list:
+# function to rotate a list a b places
+ return a[b:] + a[:b]
+
+def lights(place: list) -> None :
+        GPIO.output(green_led, place[0])
+        GPIO.output(green_led_2, place[0])
+        GPIO.output(yellow_led, place[1])
+        GPIO.output(red_led, place[2])    
+
+
+while True:
+    lights(lights_place)
+    time.sleep(speed)
+    lights(rotate(lights_place,1))
+    time.sleep(speed)
+    lights(rotate(lights_place,2))
+    if time.time() - start_time > rainbow_time:
+        break
+
+
+
+

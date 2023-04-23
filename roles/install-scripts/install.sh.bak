@@ -9,7 +9,6 @@ HL='\033[0;33m'
 NC='\033[0m' # No Color
 dpkg-reconfigure tzdata
 
-ledok=0
 inputok=0
 cityok=0
 ispok=0
@@ -17,17 +16,6 @@ idok=0
 
 while [[ inputok -lt 1 ]]; do
 
-	while [[ ledok -lt 1 ]]; do
-		echo ''
-		echo -e -n "${HL}DOES THE PROBE HAS LEDS INSTALLED? (y/n): ${NC}"
-		read ledstatus
-		if [[  $ledstatus =~ ^([yY][eE][sS]|[yY])$ ]]; then
-			echo "*/10 * * * * /usr/bin/python3 /home/led.py" >> mycron
-			crontab -u root mycron
-			rm mycron
-			ledok=1
-		fi
-	done
 	while [[ cityok -lt 1 ]]; do
 		echo ''
 		echo -e -n "${HL}ADD CITY OR LOCALITY: ${NC}"

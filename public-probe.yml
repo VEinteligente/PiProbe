@@ -9,6 +9,7 @@
        - probe
        - session
        - install-scripts
+       - leds
        - easy-conf
        - ooni
        - speedtests

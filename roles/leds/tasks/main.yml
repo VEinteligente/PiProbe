@@ -1,0 +1,29 @@
+---
+  - name: Copiando script boot_leds.py en /home/vsf/vsf/
+    template: 
+      src: boot_leds.py.j2 
+      dest: /home/boot_leds.py #Arreglar esto antes de correrlo, usa el path del titulo
+      owner: root
+      group: root
+      mode: '0755'
+
+  - name: Copiando script led.py en /home/vsf/vsf/
+    template: 
+      src: led.py.j2 
+      dest: /home/led.py
+      owner: root
+      group: root
+      mode: '0755'
+
+  - name: Creando cronjob para prender los leds respectivos cada 10 minutos 
+    cron:
+      name: "script leds"
+      minute: "*/10"
+      job: "/usr/bin/python3 /home/led.py"
+      user: root
+
+  - name: Edit /etc/rc.local to start with boot_leds.py
+    lineinfile:
+      dest: /etc/rc.local
+      insertbefore: 'exit 0'
+      line: "sudo python3 /home/boot_leds.py &"

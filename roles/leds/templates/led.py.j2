@@ -1,0 +1,77 @@
+import requests
+import time
+import RPi.GPIO as GPIO
+
+GPIO.setmode(GPIO.BCM)
+
+#led pin numbers
+green_led = 15
+green_led_2 = 13
+yellow_led = 18
+red_led = 23
+
+#set up GPIO
+GPIO.setup(green_led, GPIO.OUT)
+GPIO.setup(green_led_2, GPIO.OUT)
+GPIO.setup(yellow_led, GPIO.OUT)
+GPIO.setup(red_led, GPIO.OUT)
+
+def ping_server():
+    '''
+    Function that checks the connections with a specific server.
+    It pings a given address and returns a code. If that code is other
+    than "OK", then there is a problem with the server or the connection 
+    '''
+    try:
+        response = requests.get('https://google.com')
+#        print ("Server status:" + int(response.status_code))
+        return(response.status_code == requests.codes.ok)
+
+    except Exception as e:
+#        print ("ERROR")
+        return False
+
+def ping_control():
+    """
+    Function that checks the connections with a control url.
+    It pings a control address (such as google.com) and returns a code. 
+    If that code is other than "OK", then there's a problem with the internet
+    connection of the raspberry
+    """
+    try:
+        response = requests.get('https://google.com')
+#        print ("Control status" + int(response.status_code))
+        return(response.status_code == requests.codes.ok)
+
+    except Exception as e:
+#        print ("ERROR")
+        return False
+
+for i in range(5):
+
+    result = ping_server()
+    if (result):
+        GPIO.output(green_led, True)
+        GPIO.output(green_led_2, True)
+        GPIO.output(yellow_led, False)
+        GPIO.output(red_led, False)
+        print ("ALIVE")
+
+    else:
+        result = ping_control()
+
+        if (result):
+            GPIO.output(green_led, False)
+            GPIO.output(green_led_2, False)
+            GPIO.output(yellow_led, True)
+            GPIO.output(red_led, False)
+            print ("SERVER ERROR")
+
+        else:
+            GPIO.output(green_led, False)
+            GPIO.output(green_led_2, False)
+            GPIO.output(yellow_led, False)
+            GPIO.output(red_led, True)
+            print ("NO INTERNET")
+
+    time.sleep(1)
